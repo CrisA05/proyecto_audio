@@ -10,7 +10,7 @@ print("Habla... (Ctrl+C para salir)")
 while True:
     try:
         with sr.Microphone() as source:
-            recognizer.adjust_for_ambient_noise(source, duration=0.5) #duracion en segundos
+            recognizer.adjust_for_ambient_noise(source, duration=0.02) #duracion en segundos
             audio = recognizer.listen(source)
 
         texto = recognizer.recognize_google(audio, language="en")
