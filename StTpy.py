@@ -58,7 +58,7 @@ with sr.Microphone() as source:
             print("input: ")
             audio = recognizer.listen(source, timeout=5, phrase_time_limit=10)
             
-            text = recognizer.recognize_google(audio, language='es-MX')
+            text = recognizer.recognize_google(audio, language='en-US')
 
             # text = corregir_texto_basico(text)
 

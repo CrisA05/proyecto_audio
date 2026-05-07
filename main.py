@@ -10,7 +10,7 @@ print("Habla... (Ctrl+C para salir)")
 while True:
     try:
         with sr.Microphone() as source:
-            recognizer.adjust_for_ambient_noise(source, duration=0.5)
+            recognizer.adjust_for_ambient_noise(source, duration=0.5) #duracion en segundos
             audio = recognizer.listen(source)
 
         texto = recognizer.recognize_google(audio, language="en")
@@ -43,7 +43,7 @@ class ToxicityModel:
         X = self.vectorizer.transform([text])
         pred = self.model.predict(X)[0]
 
-        # Probabilidad (si el modelo lo soporta)
+        # Probabilidad 
         if hasattr(self.model, "decision_function"):
             score = self.model.decision_function(X)[0]
             prob = 1 / (1 + pow(2.718, -score))
